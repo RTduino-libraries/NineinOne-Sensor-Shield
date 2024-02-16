@@ -24,7 +24,7 @@
 
 static int cnt = 0;
 
-static _9in1_setup(void)
+static void _9in1_setup(void)
 {
     /* put your setup code here, to run once: */
     pinMode(LED_RED, OUTPUT);
@@ -58,4 +58,4 @@ static void _9in1_loop(void)
 
     delay(50);
 }
-
+RTDUINO_SKETCH_LOADER("9in1", _9in1_setup, _9in1_loop);

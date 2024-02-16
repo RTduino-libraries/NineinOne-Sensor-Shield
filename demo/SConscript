@@ -1,0 +1,7 @@
+from building import *
+
+src = ['comprehensive.cpp']
+print('aaa')
+group = DefineGroup('RTduino-libraries', src, depend = ['PKG_USING_ARDUINO_NINEINONE_SENSOR_SHIELD'])
+
+Return('group')
