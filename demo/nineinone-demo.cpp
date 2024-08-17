@@ -25,7 +25,6 @@
 #define LM35_SENSOR     A2
 #define DHT11_SENSOR    D4
 
-static int cnt = 0; /* counter variable */
 static DHT dht11(DHT11_SENSOR, DHT11);
 
 static void _9in1_setup(void)
@@ -42,7 +41,7 @@ static void _9in1_setup(void)
 static void _9in1_loop(void)
 {
     /* put your main code here, to run repeatedly: */
-
+    int cnt = 0;
     /* read the rotation sensor value */
     int current_rotation_value = analogRead(ROTATION); 
 
