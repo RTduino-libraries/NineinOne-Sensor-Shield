@@ -62,11 +62,21 @@ static void _9in1_loop(void)
     /* print the sensor data regularly */
     if (++cnt % 30 == 0)
     {
+        /* print the rotation sensor data */
+        Serial.print("[Rotation] value: ");
+        Serial.println(current_rotation_value);
+
+        /* print the light sensor data */
         Serial.print("[Brightness] value: ");
         Serial.println(analogRead(LIGHT_SENSOR));
-        Serial.print("[LM35] Temperature value: ");
-        Serial.println(analogRead(LM35_SENSOR));
 
+        /* print the LM35 sensor data */
+        Serial.print("[LM35] Temperature: ");
+        float lm35_voltage = analogRead(LM35_SENSOR) * (3.3 / 1024);
+        float lm35_temperature = lm35_voltage * 100;
+        Serial.println(lm35_temperature);
+
+        /* print the DHT11 sensor data */
         /* Read DHT11 sensor data */
         float h = dht11.readHumidity();
         /* Read temperature as Celsius (the default) */
